@@ -1,7 +1,7 @@
 import React from 'react';
-import MovieCard from "./MovieCard";
+import MovieCard from "../MovieCard";
 
-function MovieContainer(props) {
+function MovieSearchCont(props) {
   // console.log(props)
 
   return (
@@ -19,4 +19,4 @@ function MovieContainer(props) {
   )
 }
 
-export default MovieContainer;
+export default MovieSearchCont;

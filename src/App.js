@@ -1,4 +1,6 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from "./Components/NavBar";
 import MovieContainer from "./Components/MovieContainer";
 import NomineesContainer from "./Components/NomineesContainer";
 import './App.css';
@@ -56,44 +58,47 @@ class App extends React.Component {
   render(){
     console.log(this.state.searchCategory)
     return (
-      <div className="defaultCenter">
-        <div className="imdbFormDiv">
-            <form onSubmit={this.searchIMDB} className="imdbForm">
-              <input className="imdbFormInput"
-                placeholder="Search..." 
-                onChange={this.handleChange}
-                />
-            </form>
-          <div className="filterDiv">
-            <h4>Filter:</h4>
-            <select className="filterDropdown" onChange={this.changeSearchCategory}>
-              <option value={""}>None</option>
-              <option value={"&type=movie"}>Movie</option>
-              <option value={"&type=series"}>Series</option>
-              <option value={"&type=episode"}>Episode</option>
-            </select>
+      <Router>
+        <div className="defaultCenter">
+          <NavBar/>
+          <div className="imdbFormDiv">
+              <form onSubmit={this.searchIMDB} className="imdbForm">
+                <input className="imdbFormInput"
+                  placeholder="Search..." 
+                  onChange={this.handleChange}
+                  />
+              </form>
+            <div className="filterDiv">
+              <h4>Filter:</h4>
+              <select className="filterDropdown" onChange={this.changeSearchCategory}>
+                <option value={""}>None</option>
+                <option value={"&type=movie"}>Movie</option>
+                <option value={"&type=series"}>Series</option>
+                <option value={"&type=episode"}>Episode</option>
+              </select>
+            </div>
+          </div>
+          <div className="mainCont">
+            <div className="searchSubCont">
+              {
+                this.state.searchResults.Search ? 
+                  <div >
+                    <h3>Results for {this.state.currentSearch}...</h3>
+                    <MovieContainer movies={this.state.searchResults} 
+                      handleNewNominee={this.handleNewNominee}/>
+                  </div>
+                : <div>Please use the searchbar to search</div>
+              }
+            </div>
+            <div className="nomineeCont">
+              <h3>Nominees</h3>
+              <NomineesContainer 
+                nominees={this.state.nominees} 
+                handleNomineeUpdate={this.handleNomineeUpdate}/>
+            </div>
           </div>
         </div>
-        <div className="mainCont">
-          <div className="searchSubCont">
-            {
-              this.state.searchResults.Search ? 
-                <div >
-                  <h3>Results for {this.state.currentSearch}...</h3>
-                  <MovieContainer movies={this.state.searchResults} 
-                    handleNewNominee={this.handleNewNominee}/>
-                </div>
-              : <div>Please use the searchbar to search</div>
-            }
-          </div>
-          <div className="nomineeCont">
-            <h3>Nominees</h3>
-            <NomineesContainer 
-              nominees={this.state.nominees} 
-              handleNomineeUpdate={this.handleNomineeUpdate}/>
-          </div>
-        </div>
-      </div>
+      </Router>
     );
   }
 }
