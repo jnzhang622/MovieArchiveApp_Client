@@ -9,8 +9,11 @@ const NavBar = (props) => {
             <Link className="link" to="/">
             <strong>Home</strong>
             </Link>
-            <Link className="link" to="/playlistplayer">
-              <strong>My Playlist</strong>
+            <Link className="link" to="/watched">
+              <strong>Watched</strong>
+            </Link>
+            <Link className="link" to="/backlist">
+              <strong>Backlist</strong>
             </Link>
           </div>
         </div>
