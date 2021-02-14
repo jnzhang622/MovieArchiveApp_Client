@@ -55,8 +55,8 @@ class MovieCard extends React.Component{
               href={`https://www.imdb.com/title/${this.props.movie.imdbID}`}
               alt={this.props.movie.Title}/>
           </a>
-          <button onClick={this.handleAddToWatched}>Add to Watched</button>
-          <button onClick={this.handleAddToBacklist}>Add to Backlist</button>
+          <button onClick={this.handleAddToWatched}>Favorite</button>
+          <button onClick={this.handleAddToBacklist}>X</button>
       </div>
     )
   }
