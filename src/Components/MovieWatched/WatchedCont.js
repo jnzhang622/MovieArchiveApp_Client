@@ -1,8 +1,7 @@
 import React from 'react';
-import MovieCard from "./MovieCard";
+import WatchedCard from "./WatchedCard";
 
-function MovieSearchCont(props) {
-  // console.log(props)
+function WatchedCont(props) {
 
   // this.handleAddToWatched = (e) => { //adds new movie to watched
   //   e.preventDefault()
@@ -47,10 +46,10 @@ function MovieSearchCont(props) {
 
   return (
     <div className="searchCont">
-        {props.movies.Search.map(movie => {
+        {props.movies.map(movie => {
             return (
                 <div>
-                    <MovieCard movie = {movie}
+                    <WatchedCard movie = {movie}
                       handleNewNominee={props.handleNewNominee}/>
                 </div>
                 )
@@ -60,4 +59,4 @@ function MovieSearchCont(props) {
   )
 }
 
-export default MovieSearchCont;
+export default WatchedCont;

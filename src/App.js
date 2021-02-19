@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import MovieSearch from "./Components/MovieSearch/MovieSearch";
-// import MovieWatched from "./Components/MovieWatched/Watched";
+import MovieWatched from "./Components/MovieWatched/Watched";
 // import MovieBacklist from "./Components/MovieBacklist/MovieBacklist";
 import './App.css';
 
@@ -41,7 +41,7 @@ class App extends React.Component {
         <Switch>
             <Route exact path="/" ><MovieSearch 
               apiKey = {this.state.apiKey}/></Route>
-            {/* <Route exact path="/watched" ><MovieWatched /></Route> */}
+            <Route exact path="/watched" ><MovieWatched /></Route>
           </Switch>
         
       </Router>

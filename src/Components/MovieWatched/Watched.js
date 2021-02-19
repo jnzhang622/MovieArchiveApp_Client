@@ -4,7 +4,7 @@ import WatchedCont from "./WatchedCont"
 class Watched extends React.Component {
 
     state={
-      watchedMovies = []
+      watchedMovies: []
     }
     
   componentDidMount(){ //fetches from rails backend for watched movies

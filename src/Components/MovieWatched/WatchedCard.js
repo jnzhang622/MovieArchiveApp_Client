@@ -1,7 +1,7 @@
 import React from 'react';
 import noImage from '../w13911i0.jpg'
 
-class MovieCard extends React.Component{
+class WatchedCard extends React.Component{
 
   handleAddToWatched = (e) => { //adds new movie to watched
     e.preventDefault()
@@ -61,4 +61,4 @@ class MovieCard extends React.Component{
     )
   }
 }
-export default MovieCard;
+export default WatchedCard;
