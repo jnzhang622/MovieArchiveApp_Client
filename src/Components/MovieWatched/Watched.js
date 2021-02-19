@@ -7,7 +7,7 @@ class Watched extends React.Component {
       watchedMovies = []
     }
     
-  componentDidMount(){ //fetches from rails backend
+  componentDidMount(){ //fetches from rails backend for watched movies
     fetch("http://localhost:3000/watcheds")
         .then(resp => resp.json())
         .then(data => this.setState({watchedMovies: data}))
