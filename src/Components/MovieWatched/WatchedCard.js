@@ -23,7 +23,7 @@ class WatchedCard extends React.Component{
         // .then(data => {this.props.handleNewNominee(data)})
   }
 
-  handleAddToBacklist = (e) => { //adds new movie to backlist
+  deleteFromWatched = (e) => { //adds new movie to backlist
     e.preventDefault()
     fetch(`http://localhost:3000/backlists`, {
         method: 'POST',
@@ -56,7 +56,7 @@ class WatchedCard extends React.Component{
               alt={this.props.movie.Title}/>
           </a>
           <button onClick={this.handleAddToWatched}>Favorite</button>
-          <button onClick={this.handleAddToBacklist}>X</button>
+          <button onClick={this.deleteFromWatched}>X</button>
       </div>
     )
   }
