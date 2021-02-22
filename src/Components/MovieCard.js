@@ -22,7 +22,6 @@ class MovieCard extends React.Component{
         .then(data => {this.props.handleNewNominee(data)})
   }
   render() {
-    console.log(this.props.movie.Poster)
     return (
       <div className="searchCard">
           <h5>{this.props.movie.Title} ({this.props.movie.Year})</h5>

@@ -3,7 +3,7 @@ import noImage from '../w13911i0.jpg'
 
 class WatchedCard extends React.Component{
 
-  handleAddToWatched = (e) => { //adds new movie to watched
+  updateFavoriteEntry = (e) => { //adds new movie to watched
     e.preventDefault()
     fetch(`http://localhost:3000/watcheds`, {
         method: 'POST',
@@ -43,7 +43,7 @@ class WatchedCard extends React.Component{
         // .then(data => {this.props.handleNewNominee(data)})
   }
   render() {
-    console.log(this.props.movie.Poster)
+    // console.log(this.props.movie.Title)
     return (
       <div className="searchCard">
           <h5>{this.props.movie.Title} ({this.props.movie.Year})</h5>
@@ -55,8 +55,13 @@ class WatchedCard extends React.Component{
               href={`https://www.imdb.com/title/${this.props.movie.imdbID}`}
               alt={this.props.movie.Title}/>
           </a>
-          <button onClick={this.handleAddToWatched}>Favorite</button>
-          <button onClick={this.deleteFromWatched}>X</button>
+          <div>
+            {(this.props.movie.liked) ? 
+              <button onClick={this.updateFavoriteEntry}>UnFavorite</button> :
+              <button onClick={this.updateFavoriteEntry}>Favorite</button>
+            }
+            <button onClick={this.deleteFromWatched}>X</button>
+          </div>
       </div>
     )
   }

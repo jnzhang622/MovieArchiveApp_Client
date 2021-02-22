@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchedCard from "./WatchedCard";
 
-function WatchedCont(props) {
+class WatchedCont extends React.Component {
 
   // this.handleAddToWatched = (e) => { //adds new movie to watched
   //   e.preventDefault()
@@ -43,20 +43,33 @@ function WatchedCont(props) {
   //       // .then(data => {this.props.handleNewNominee(data)})
   // }
 
+  
 
-  return (
-    <div className="searchCont">
-        {props.movies.map(movie => {
-            return (
-                <div>
-                    <WatchedCard movie = {movie}
-                      handleNewNominee={props.handleNewNominee}/>
-                </div>
-                )
-            })
-        }
-    </div>
-  )
+  returnsArray = () => {
+    let arrayToReturn = this.props.movies.filter(movie => { //controls the Filter
+        return (
+          movie.Title.toLowerCase().includes(this.props.searchTerm.toLowerCase())
+        )
+    })
+    return arrayToReturn
+  }
+
+  render(){
+    return (
+      <div className="searchCont">
+          {this.returnsArray().map(movie => {
+              return (
+                  <div>
+                      <WatchedCard movie = {movie}
+                        // handleNewNominee={this.props.handleNewNominee}
+                        />
+                  </div>
+                  )
+              })
+          }
+      </div>
+    )
+  }
 }
 
 export default WatchedCont;
